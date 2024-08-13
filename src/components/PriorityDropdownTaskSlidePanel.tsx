@@ -13,7 +13,7 @@ const PriorityDropdownTaskSlidePanel: React.FC<PriorityDropdownTaskSlidePanelPro
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
-  const options: { value: "Low" | "Medium" | "High"; label: string }[] = [
+  const options: { value: "Low" | "Medium" | "High"|null; label: string }[] = [
     { value: "Low", label: "Low" },
     { value: "Medium", label: "Medium" },
     { value: "High", label: "High" },

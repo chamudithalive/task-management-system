@@ -66,7 +66,7 @@ const TaskSidePanel: React.FC<TaskSidePanelProps> = ({
     });
   };
 
-  const handlePriorityChange = (value: "Low" | "Medium" | "High" | null) => {
+  const handlePriorityChange = (value: "Low" | "Medium" | "High") => {
     setEditableTask((prevTask) => {
       if (!prevTask) return null;
       const updatedTask = { ...prevTask, priority: value };
@@ -179,7 +179,7 @@ const TaskSidePanel: React.FC<TaskSidePanelProps> = ({
           <div className="flex gap-2 items-center">
             <PriorityDropdownTaskSlidePanel
               value={editableTask.priority}
-              onChange={handlePriorityChange || null}
+              onChange={handlePriorityChange}
             />
             <CloseCircle />
           </div>

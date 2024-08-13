@@ -2,8 +2,8 @@ import { ArrowDown2, TickCircle } from "iconsax-react";
 import React, { useState, useRef, useEffect } from "react";
 
 interface PriorityDropdownTaskSlidePanelProps {
-  value: "Low" | "Medium" | "High" | null;
-  onChange: (value: "Low" | "Medium" | "High" | null) => void;
+  value: "Low" | "Medium" | "High";
+  onChange: (value: "Low" | "Medium" | "High") => void;
 }
 
 const PriorityDropdownTaskSlidePanel: React.FC<PriorityDropdownTaskSlidePanelProps> = ({
@@ -13,13 +13,13 @@ const PriorityDropdownTaskSlidePanel: React.FC<PriorityDropdownTaskSlidePanelPro
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
-  const options: { value: "Low" | "Medium" | "High"|null; label: string }[] = [
+  const options: { value: "Low" | "Medium" | "High"; label: string }[] = [
     { value: "Low", label: "Low" },
     { value: "Medium", label: "Medium" },
     { value: "High", label: "High" },
   ];
 
-  const handleSelect = (optionValue: "Low" | "Medium" | "High" | null) => {
+  const handleSelect = (optionValue: "Low" | "Medium" | "High") => {
     onChange(optionValue);
     setIsOpen(false);
   };

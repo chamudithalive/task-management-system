@@ -2,8 +2,8 @@ import { ArrowDown2, TickCircle } from "iconsax-react";
 import React, { useState, useRef, useEffect } from "react";
 
 interface PriorityDropdownTaskSlidePanelProps {
-  value: string | null;
-  onChange: (value: string | null) => void;
+  value: "Low" | "Medium" | "High" | null;
+  onChange: (value: "Low" | "Medium" | "High" | null) => void;
 }
 
 const PriorityDropdownTaskSlidePanel: React.FC<PriorityDropdownTaskSlidePanelProps> = ({
@@ -13,16 +13,17 @@ const PriorityDropdownTaskSlidePanel: React.FC<PriorityDropdownTaskSlidePanelPro
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
-  const options = [
+  const options: { value: "Low" | "Medium" | "High"; label: string }[] = [
     { value: "Low", label: "Low" },
     { value: "Medium", label: "Medium" },
     { value: "High", label: "High" },
   ];
 
-  const handleSelect = (optionValue: string) => {
+  const handleSelect = (optionValue: "Low" | "Medium" | "High" | null) => {
     onChange(optionValue);
     setIsOpen(false);
   };
+  
 
   const handleClickOutside = (event: MouseEvent) => {
     if (
@@ -46,7 +47,7 @@ const PriorityDropdownTaskSlidePanel: React.FC<PriorityDropdownTaskSlidePanelPro
         className="flex gap-2 cursor-pointer"
         onClick={() => setIsOpen(!isOpen)}
       >
-        {value} <ArrowDown2 />
+        {value || "Select priority"} <ArrowDown2 />
       </div>
 
       {isOpen && (

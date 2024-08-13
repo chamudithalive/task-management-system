@@ -10,7 +10,7 @@ interface AssigneeDropdownTaskSlidePanelProps {
   options: AssigneeDropdownTaskSlidePanelOption[];
   value: number | null;
   onChange: (value: number | null) => void;
-  name: string;
+  name: string |null;
 }
 
 const AssigneeDropdownTaskSlidePanel: React.FC<AssigneeDropdownTaskSlidePanelProps> = ({
